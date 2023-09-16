@@ -1,13 +1,16 @@
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'SECRET_KEY'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['158.160.75.108', '127.0.0.1', 'localhost', 'kittytest1.ddns.net']
+ALLOWED_HOSTS = ['158.160.75.108', '127.0.0.1',
+    'localhost', 'kittytest1.ddns.net']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -90,7 +93,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_URL = 'static_backend'
+STATIC_URL = '/static_backend/'
 STATIC_ROOT = BASE_DIR / 'static_backend'
 
 MEDIA_URL = '/media/'
